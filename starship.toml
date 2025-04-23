@@ -1,0 +1,179 @@
+# ~/.config/starship.toml
+
+"$schema" = 'https://starship.rs/config-schema.json'
+
+format = """
+[](color_grade1)\
+$os\
+$username\
+[󰁥](fg:color_white bg:color_grade1)\
+$hostname\
+[](fg:color_grade1 bg:color_grade2)\
+$directory\
+[](fg:color_grade2 bg:color_grade3)\
+$git_branch\
+$git_status\
+[](fg:color_grade3 bg:color_grade4)\
+$c\
+$rust\
+$golang\
+$nodejs\
+$php\
+$java\
+$kotlin\
+$haskell\
+$python\
+[](fg:color_grade4 bg:color_grade5)\
+${custom.venvpython}\
+$docker_context\
+$conda\
+[](fg:color_grade5 bg:color_white)\
+$time\
+[ ](fg:color_white)\
+$line_break${custom.venvpythonprompt}$character
+"""
+
+palette = 'laffin_dark'
+
+[palettes.laffin_dark]
+color_red = '#cc241d'
+color_white = '#FFFFFF'
+color_black = '#000000'
+color_grade1 = '#041E42'
+color_grade2 = '#2D4269'
+color_grade3 = '#56768F'
+color_grade4 = '#7FAAB6'
+color_grade5 = '#B8DDEB'
+
+[os]
+disabled = false
+style = "bg:color_grade1 fg:color_white"
+
+[os.symbols]
+Windows = "󰍲"
+Ubuntu = "󰕈"
+SUSE = ""
+Raspbian = "󰐿"
+Mint = "󰣭"
+Macos = "󰀵"
+Manjaro = ""
+Linux = "󰌽"
+Gentoo = "󰣨"
+Fedora = "󰣛"
+Alpine = ""
+Amazon = ""
+Android = ""
+Arch = "󰣇"
+Artix = "󰣇"
+EndeavourOS = ""
+CentOS = ""
+Debian = "󰣚"
+Redhat = "󱄛"
+RedHatEnterprise = "󱄛"
+Pop = ""
+Kali = ""
+
+[username]
+show_always = true
+style_user = "bg:color_grade1 fg:color_white"
+style_root = "bg:color_grade1 fg:color_white"
+format = '[ $user]($style)'
+
+[hostname]
+ssh_only = false
+style = "bg:color_grade1 fg:color_white"
+format = '[$hostname ]($style)'
+
+[directory]
+style = "fg:color_white bg:color_grade2"
+format = "[ $path ]($style)"
+truncation_length = 3
+truncation_symbol = "…/"
+truncate_to_repo = false
+
+[git_branch]
+symbol = ""
+style = "bg:color_grade3"
+format = '[[ $symbol $branch ](fg:color_white bg:color_grade3)]($style)'
+
+[git_status]
+style = "bg:color_grade3"
+format = '[[($all_status$ahead_behind )](fg:color_white bg:color_grade3)]($style)'
+
+[nodejs]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[c]
+symbol = " "
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[rust]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[golang]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[php]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[java]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[kotlin]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[haskell]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[python]
+symbol = ""
+style = "bg:color_grade4"
+format = '[[ $symbol( $version) ](fg:color_black bg:color_grade4)]($style)'
+
+[custom.venvpython]
+command = "basename \"$VIRTUAL_ENV\""
+when = "test -n \"$VIRTUAL_ENV\""
+style = "bg:color_grade5"
+format = '[[ \(($output)\)  ](fg:color_black bg:color_grade5)]($style)'
+
+[custom.venvpythonprompt]
+when = "test -n \"$VIRTUAL_ENV\""
+format = '[[ venv ](fg:color_grade5)]($style)'
+
+[docker_context]
+symbol = ""
+style = "bg:color_grade5"
+format = '[[ $symbol( $context) ](fg:color_black bg:color_grade5)]($style)'
+
+[conda]
+style = "bg:color_grade5"
+format = '[[ $symbol( $environment) ](fg:color_black bg:bg:color_grade5)]($style)'
+
+[time]
+disabled = true
+time_format = "%R"
+style = "bg:color_white"
+format = '[[  $time ](fg:color_black bg:color_white)]($style)'
+
+[line_break]
+disabled = false
+
+[character]
+disabled = false
+success_symbol = '[󰄾](bold fg:color_white)'
+error_symbol = '[󰄾](bold fg:color_red)'

@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# copy starship conf
+mkdir -p ~/.config
+cp starship.toml ~/.config/starship.toml
+
 # copy tmux.conf file
 mkdir -p ~/.config/tmux/plugins/catppuccin
 cp tmux.conf ~/.config/tmux/tmux.conf
